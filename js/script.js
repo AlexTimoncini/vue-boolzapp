@@ -174,12 +174,24 @@ createApp({
         changeActive(indexActivated){
             this.activeContact = indexActivated;
         },
-        enterNewMsg(string){
+        enterNewMsg(){
             let dt = new Date();
             let newMsg = {
                 date: this.doubleDigit(dt.getUTCDate()) + '/' + this.doubleDigit((dt.getMonth() + 1 )) + '/' + dt.getFullYear() + ' ' + this.doubleDigit(dt.getHours()) + ':' + this.doubleDigit(dt.getMinutes()) + ':' + this.doubleDigit(dt.getSeconds()),
-                message: string,
+                message: this.newMessage,
                 status: 'sent'
+            };
+            console.log(this.contactList[this.activeContact].messages)
+            this.contactList[this.activeContact].messages.push(newMsg);
+            this.newMessage = '';
+            setTimeout(this.botAnswer, 2000)
+        },
+        botAnswer(){
+            let dt = new Date();
+            let newMsg = {
+                date: this.doubleDigit(dt.getUTCDate()) + '/' + this.doubleDigit((dt.getMonth() + 1 )) + '/' + dt.getFullYear() + ' ' + this.doubleDigit(dt.getHours()) + ':' + this.doubleDigit(dt.getMinutes()) + ':' + this.doubleDigit(dt.getSeconds()),
+                message: 'Daje Roma Daje!!',
+                status: 'receive'
             };
             console.log(this.contactList[this.activeContact].messages)
             this.contactList[this.activeContact].messages.push(newMsg);
