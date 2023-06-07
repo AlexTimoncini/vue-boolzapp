@@ -186,6 +186,7 @@ createApp({
             newMessage: '',
             lookingFor: false,
             userSearch: '',
+            bannerNotification: true,
         }
     },
     methods: {

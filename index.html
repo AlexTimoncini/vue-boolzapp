@@ -36,7 +36,7 @@
                 </div>
             </header>
             <main class="ivy_contacts_body">
-                <div class="ivy_notification_banner">
+                <div v-if="bannerNotification" class="ivy_notification_banner">
                     <div class="ivy_bell_icon">
                         <i class="fa-solid fa-bell-slash"></i>
                     </div>
@@ -46,7 +46,7 @@
                             <span><i class="fa-solid fa-chevron-right"></i></span>
                         </p>
                     </div>
-                    <button id="close_btn">
+                    <button id="close_btn" @click="bannerNotification = !bannerNotification">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
