@@ -165,13 +165,14 @@ createApp({
                         }
                     ],
                 }
-                
-            ]
-            
+            ],
+            activeContact: 0,
         }
     },
     methods: {
-
+        changeActive(indexActivated){
+            this.activeContact = indexActivated;
+        }
 
     }
 }).mount('#app')

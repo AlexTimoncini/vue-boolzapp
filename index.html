@@ -51,7 +51,7 @@
                     </button>
                 </div>
                 <ul id="contacts_list">
-                    <li class="ivy_contact" v-for="(contact, index) in contactList">
+                    <li class="ivy_contact" v-for="(contact, index) in contactList" @click="changeActive(index)" :class="activeContact === index ? 'ivy_active' : ''">
                         <div class="ivy_profile_box">
                             <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
                         </div>

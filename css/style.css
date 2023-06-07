@@ -174,7 +174,8 @@ body{
     right: 10px;
 }
 
-.ivy_contact:hover{
+.ivy_contact:hover,
+.ivy_contact.ivy_active{
     background-color: #f0f2f5;
 }
 
