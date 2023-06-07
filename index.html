@@ -13,7 +13,59 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    hello world
+    <div id="app">
+        <section id="contacts">
+            <header class="ivy_header">
+                <nav class="ivy_navbar">
+                    <div class="ivy_profile_box">
+                        <img src="./assets/avatar_io.jpg" alt="User Profile Image" class="ivy_profile_img">
+                    </div>
+                    <div class="ivy_command_box">
+                        <i class="fa-solid fa-users"></i>
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </nav>
+                <div class="ivy_searchbar_box">
+                    <div class="ivy_search_icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <input type="text" name="contacts_searchbar" id="contacts_searchbar" placeholder="Search or start a new chat">
+                    <i class="fa-solid fa-filter"></i>
+                </div>
+            </header>
+            <main class="ivy_contacs_body">
+                <div class="ivy_notification_banner">
+                    <div class="ivy_bell_icon">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="ivy_banner_text">
+                        <p>Get notified of new messages</p>
+                        <p class="ivy_turn_on">Turn on desktop notifications
+                            <span><i class="fa-solid fa-chevron-right"></i></span>
+                        </p>
+                    </div>
+                    <button id="close_btn">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <ul id="contacts_list">
+                    <li class="ivy_contact" v-for="(contact, index) in contactList">
+                        <div class="ivy_profile_box">
+                            <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
+                        </div>
+                        <div class="ivy_text_box">
+                            <p class="ivy_contact_name">{{ contact.name }}</p>
+                            <p class="ivy_last_msg">Ultimo Messaggio</p>
+                        </div>
+                        <p class="last_msg_date"></p>
+                    </li>
+                </ul>
+            </main>
+        </section>
+        <section id="chat"></section>
+    </div>
     <script src="./js/script.js"></script>
 </body>
 </html>
