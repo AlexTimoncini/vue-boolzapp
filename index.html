@@ -97,7 +97,7 @@
                             <i class="fa-solid fa-chevron-down"></i>
                             <ul v-if="message.triggered" class="ivy_pop_up" :class="!msgPosition(index) ? 'ivy_visibleUp' : 'ivy_visibleDown'">
                                 <li>Message info</li>
-                                <li>Delete Message</li>
+                                <li @click="removeMsg(index, contactList[activeContact].messages)">Delete Message</li>
                             </ul>
                         </div>
                     </div>

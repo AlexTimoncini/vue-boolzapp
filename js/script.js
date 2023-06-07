@@ -237,6 +237,9 @@ createApp({
                 return true
             }
             return false
+        },
+        removeMsg(msgIndex, msgList){
+            msgList.splice(msgIndex, 1);
         }
     }
 }).mount('#app')
