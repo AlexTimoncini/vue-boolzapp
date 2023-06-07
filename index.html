@@ -68,7 +68,7 @@
             <header class="ivy_header">
                 <nav class="ivy_navbar">
                     <div class="ivy_profile_box">
-                        <img :src="contactList[0].avatar" alt="User Profile Image" class="ivy_profile_img">
+                        <img :src="contactList[activeContact].avatar" alt="User Profile Image" class="ivy_profile_img">
                     </div>
                     <div class="ivy_command_box">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -77,10 +77,10 @@
                 </nav>
             </header>
             <main class="ivy_chat_body">
-                <div class="ivy_msg_wrap" v-for="n in 50" :class="n%2===0 ? 'ivy_sent' : 'ivy_received' ">
+                <div class="ivy_msg_wrap" v-for="message in contactList[activeContact].messages" :class="message.status==='sent' ? 'ivy_sent' : 'ivy_received' ">
                     <div class="ivy_msg">
-                        <p class="ivy_text_msg">Hello There!</p> 
-                        <p class="ivy_time_msg"><span>12:50</span></p> 
+                        <p class="ivy_text_msg">{{ message.message }}</p> 
+                        <p class="ivy_time_msg"><span>{{ message.date.substring(11,16) }}</span></p> 
                     </div>
                 </div>
             </main>
