@@ -89,7 +89,7 @@
                     <i class="fa-regular fa-face-smile"></i>
                     <i class="fa-solid fa-paperclip"></i>
                 </div>
-                <input type="text" name="chat_bar" id="chat_bar" placeholder="Type a message">
+                <input type="text" name="chat_bar" id="chat_bar" placeholder="Type a message" v-model="newMessage" @keyup.enter="enterNewMsg(newMessage)">
                 <div class="ivy_command_box">
                     <i class="fa-solid fa-microphone"></i>
                 </div>

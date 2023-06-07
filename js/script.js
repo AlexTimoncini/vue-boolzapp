@@ -167,12 +167,28 @@ createApp({
                 }
             ],
             activeContact: 0,
+            newMessage: '',
         }
     },
     methods: {
         changeActive(indexActivated){
             this.activeContact = indexActivated;
+        },
+        enterNewMsg(string){
+            let dt = new Date();
+            let newMsg = {
+                date: this.doubleDigit(dt.getUTCDate()) + '/' + this.doubleDigit((dt.getMonth() + 1 )) + '/' + dt.getFullYear() + ' ' + this.doubleDigit(dt.getHours()) + ':' + this.doubleDigit(dt.getMinutes()) + ':' + this.doubleDigit(dt.getSeconds()),
+                message: string,
+                status: 'sent'
+            };
+            console.log(this.contactList[this.activeContact].messages)
+            this.contactList[this.activeContact].messages.push(newMsg);
+        },
+        doubleDigit(number){
+            if(number.toString().length < 2){
+                number = '0' + number 
+            } 
+            return number;
         }
-
     }
 }).mount('#app')
