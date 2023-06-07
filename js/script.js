@@ -168,6 +168,8 @@ createApp({
             ],
             activeContact: 0,
             newMessage: '',
+            lookingFor: false,
+            userSearch: ''
         }
     },
     methods: {
@@ -175,16 +177,18 @@ createApp({
             this.activeContact = indexActivated;
         },
         enterNewMsg(){
-            let dt = new Date();
-            let newMsg = {
-                date: this.doubleDigit(dt.getUTCDate()) + '/' + this.doubleDigit((dt.getMonth() + 1 )) + '/' + dt.getFullYear() + ' ' + this.doubleDigit(dt.getHours()) + ':' + this.doubleDigit(dt.getMinutes()) + ':' + this.doubleDigit(dt.getSeconds()),
-                message: this.newMessage,
-                status: 'sent'
-            };
-            console.log(this.contactList[this.activeContact].messages)
-            this.contactList[this.activeContact].messages.push(newMsg);
-            this.newMessage = '';
-            setTimeout(this.botAnswer, 2000)
+            if (this.newMessage.length > 0){
+                let dt = new Date();
+                let newMsg = {
+                    date: this.doubleDigit(dt.getUTCDate()) + '/' + this.doubleDigit((dt.getMonth() + 1 )) + '/' + dt.getFullYear() + ' ' + this.doubleDigit(dt.getHours()) + ':' + this.doubleDigit(dt.getMinutes()) + ':' + this.doubleDigit(dt.getSeconds()),
+                    message: this.newMessage,
+                    status: 'sent'
+                };
+                console.log(this.contactList[this.activeContact].messages)
+                this.contactList[this.activeContact].messages.push(newMsg);
+                this.newMessage = '';
+                setTimeout(this.botAnswer, 2000)
+            }
         },
         botAnswer(){
             let dt = new Date();
@@ -193,7 +197,6 @@ createApp({
                 message: 'Daje Roma Daje!!',
                 status: 'receive'
             };
-            console.log(this.contactList[this.activeContact].messages)
             this.contactList[this.activeContact].messages.push(newMsg);
         },
         doubleDigit(number){
@@ -201,6 +204,13 @@ createApp({
                 number = '0' + number 
             } 
             return number;
+        },
+        searchingContact(){
+            if(this.userSearch.length > 0){
+                this.lookingFor = true;
+            } else {
+                this.lookingFor = false;
+            }
         }
     }
 }).mount('#app')
