@@ -22,12 +22,10 @@ body{
 
 #contacts{
     width: 35%;
-
 }
 
 #chat{
     width: 65%;
-    background-color: blue;
 }
 
 .ivy_navbar{
@@ -195,7 +193,71 @@ body{
     color: #6e7072;
 }
 
-@media screen and (max-width: 900px){
+#chat .ivy_navbar:first-child{
+    border-left: 2px solid #d3d9dd;
+}
+
+#chat .ivy_navbar:last-child i{
+    font-size: 1.5rem;
+}
+
+#chat .ivy_navbar:last-child .ivy_command_box:first-child{
+    column-gap: 1rem;
+    padding: 0 1.5rem 0 0.5rem;
+}
+
+.ivy_chat_body{
+    background-image: url(../assets/mine.jpg);
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 60px - 60px);
+    overflow: scroll;
+}
+
+#chat_bar{
+    height: 100%;
+    border: none;
+    background-color: #fff;
+    padding: 0 1rem;
+    border-radius: 0.6rem;
+    flex-grow: 1;
+    margin-right: 1rem;
+}
+
+.ivy_msg_wrap{
+    padding: 1rem 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.ivy_msg{
+    padding: 0.3rem;
+    border-radius: 8px;
+    max-width: 50%;
+    display: flex;
+}
+
+.ivy_time_msg{
+    margin-left: 0.5rem;
+    font-size: 0.7rem;
+    color: #54656f;
+    display: flex;
+    align-items: flex-end;
+}
+
+.ivy_msg_wrap.ivy_sent .ivy_msg{
+    background-color: #d9fdd3;
+    align-self: flex-end;
+}
+
+.ivy_msg_wrap.ivy_received .ivy_msg{
+    background-color: #fff;
+    align-self: flex-start;
+
+}
+
+
+@media screen and (max-width: 1440px){
     #app{
         margin: 0;
         width: 100%;

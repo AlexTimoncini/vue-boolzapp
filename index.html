@@ -64,7 +64,38 @@
                 </ul>
             </main>
         </section>
-        <section id="chat"></section>
+        <section id="chat">
+            <header class="ivy_header">
+                <nav class="ivy_navbar">
+                    <div class="ivy_profile_box">
+                        <img :src="contactList[0].avatar" alt="User Profile Image" class="ivy_profile_img">
+                    </div>
+                    <div class="ivy_command_box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </nav>
+            </header>
+            <main class="ivy_chat_body">
+                <div class="ivy_msg_wrap" v-for="n in 50" :class="n%2===0 ? 'ivy_sent' : 'ivy_received' ">
+                    <div class="ivy_msg">
+                        <p class="ivy_text_msg">Hello There!</p> 
+                        <p class="ivy_time_msg"><span>12:50</span></p> 
+                    </div>
+                </div>
+            </main>
+            <nav class="ivy_navbar">
+                <div class="ivy_command_box ivy_emoji_box">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <i class="fa-solid fa-paperclip"></i>
+                </div>
+                <input type="text" name="chat_bar" id="chat_bar" placeholder="Type a message">
+                <div class="ivy_command_box">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+            </nav>
+            </header>
+        </section>
     </div>
     <script src="./js/script.js"></script>
 </body>
