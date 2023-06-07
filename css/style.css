@@ -241,6 +241,8 @@ body{
     border-radius: 8px;
     max-width: 50%;
     display: flex;
+    position: relative;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .ivy_time_msg{
@@ -249,6 +251,7 @@ body{
     color: #54656f;
     display: flex;
     align-items: flex-end;
+    overflow: hidden;
 }
 
 .ivy_msg_wrap.ivy_sent .ivy_msg{
@@ -260,6 +263,66 @@ body{
     background-color: #fff;
     align-self: flex-start;
 
+}
+
+.ivy_msg_menu{
+    position: absolute;
+    right: 5px;
+    color: #6e7072;
+    aspect-ratio: 1 / 1;
+    width: 20px;
+    padding: 0 5px;
+    cursor: pointer;
+    transition: all 0.08s ease;
+    opacity: 0;
+}
+
+.ivy_msg:hover .ivy_msg_menu{
+    opacity: 1;
+}
+
+
+
+.ivy_sent .ivy_msg_menu{
+    background-color: #d9fdd3;
+    box-shadow: 0px 0px 5px 3px #d9fdd3;
+}
+
+.ivy_received .ivy_msg_menu{
+    background-color: #fff;
+    box-shadow: 0px 0px 5px 3px #fff;
+}
+
+.ivy_pop_up{
+    position: absolute;
+    background-color: #fff;
+    list-style: none;
+    width: 200px;
+    height: 100px;
+    opacity: 1;
+    transition: all 0.05s ease;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 10;
+}
+
+.ivy_pop_up.ivy_visibleUp{
+    bottom: 105%;
+}
+
+.ivy_pop_up.ivy_visibleDown{
+    top: 105%;
+}
+
+.ivy_pop_up li{
+    padding: 1rem;
+}
+
+.ivy_pop_up li:hover{
+    background-color:#f0f2f5;
+}
+
+.ivy_sent .ivy_pop_up{
+    right: 100%;
 }
 
 @media screen and (max-width: 1300px){
