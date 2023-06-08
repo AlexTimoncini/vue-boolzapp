@@ -18,6 +18,10 @@ input:focus {
     display: flex;
 }
 
+.opacity_1{
+    opacity: 1!important;
+}
+
 body{
     font-family: 'Arimo', sans-serif;
     height: 100vh;
@@ -305,7 +309,6 @@ body{
     list-style: none;
     width: 200px;
     height: 100px;
-    opacity: 1;
     transition: all 0.05s ease;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     z-index: 10;

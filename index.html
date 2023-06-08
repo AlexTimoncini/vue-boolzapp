@@ -99,7 +99,7 @@
                     <div class="ivy_msg">
                         <p class="ivy_text_msg">{{ message.message }}</p> 
                         <p class="ivy_time_msg"><span>{{ message.date.substring(11,16) }}</span></p>                     
-                        <div class="ivy_msg_menu" @click="deleteMsgPopUp(message)">
+                        <div class="ivy_msg_menu" @click="deleteMsgPopUp(message)" :class="message.triggered ? 'opacity_1' : ''">
                             <i class="fa-solid fa-chevron-down"></i>
                             <ul v-if="message.triggered" class="ivy_pop_up" :class="!msgPosition(index) ? 'ivy_visibleUp' : 'ivy_visibleDown'">
                                 <li>Message info</li>
@@ -107,7 +107,6 @@
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </main>
             <nav class="ivy_navbar">
