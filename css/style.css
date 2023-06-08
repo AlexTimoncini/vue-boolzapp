@@ -285,8 +285,6 @@ body{
     opacity: 1;
 }
 
-
-
 .ivy_sent .ivy_msg_menu{
     background-color: #d9fdd3;
     box-shadow: 0px 0px 5px 3px #d9fdd3;
@@ -327,6 +325,10 @@ body{
 
 .ivy_sent .ivy_pop_up{
     right: 100%;
+}
+
+#chat .fa-microphone{
+    padding-left: 6px;
 }
 
 @media screen and (max-width: 1300px){

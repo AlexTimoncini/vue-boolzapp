@@ -111,7 +111,8 @@
                 </div>
                 <input type="text" name="chat_bar" id="chat_bar" placeholder="Type a message" v-model="newMessage" @keyup.enter="enterNewMsg()">
                 <div class="ivy_command_box">
-                    <i class="fa-solid fa-microphone"></i>
+                    <i v-if="newMessage == ''" class="fa-solid fa-microphone"></i>
+                    <i v-else class="fa-solid fa-paper-plane" @click="enterNewMsg()"></i>
                 </div>
             </nav>
             </header>

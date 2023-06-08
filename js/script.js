@@ -202,10 +202,10 @@ createApp({
                     status: 'sent',
                     triggered: false,
                 };
-                console.log(this.contactList[this.activeContact].messages)
+                console.log(this.contactList[this.activeContact].messages);
                 this.contactList[this.activeContact].messages.push(newMsg);
                 this.newMessage = '';
-                setTimeout(this.botAnswer, 2000)
+                setTimeout(this.botAnswer, 2000);
             }
         },
         botAnswer(){
