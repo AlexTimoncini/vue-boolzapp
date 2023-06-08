@@ -187,6 +187,7 @@ createApp({
             lookingFor: false,
             userSearch: '',
             bannerNotification: true,
+            triggerMenu: false,
         }
     },
     methods: {

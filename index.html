@@ -90,7 +90,20 @@
                     </div>
                     <div class="ivy_command_box">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <div class="ivy_menu" @click="triggerMenu = !triggerMenu">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <ul v-if="triggerMenu" class="ivy_pop_up ivy_visibleDown">
+                                <li>Contact info</li>
+                                <li>Select Messages</li>
+                                <li>Close Chat</li>
+                                <li>Mute Notifications</li>
+                                <li>Disappering Messages</li>
+                                <li>Clear Messages</li>
+                                <li>Delete Chat</li>
+                                <li>Report</li>
+                                <li>Block</li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </header>
@@ -120,7 +133,6 @@
                     <i v-else class="fa-solid fa-paper-plane" @click="enterNewMsg()"></i>
                 </div>
             </nav>
-            </header>
         </section>
     </div>
     <script src="./js/script.js"></script>

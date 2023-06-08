@@ -34,7 +34,6 @@ body{
     width: 60%;
     min-width: 737px;
     display: flex;
-    overflow: hidden;
 }
 
 #contacts{
@@ -47,7 +46,6 @@ body{
 
 .ivy_navbar{
     height: 60px;
-    overflow: hidden;
     background-color: #f0f2f5;
     display: flex;
     justify-content: space-between;
@@ -308,7 +306,6 @@ body{
     background-color: #fff;
     list-style: none;
     width: 200px;
-    height: 100px;
     transition: all 0.05s ease;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     z-index: 10;
@@ -336,6 +333,15 @@ body{
 
 #chat .fa-microphone{
     padding-left: 6px;
+}
+
+.ivy_menu{
+    position: relative;
+}
+
+.ivy_menu .ivy_pop_up{
+    right: 100%;
+    width: 250px;
 }
 
 @media screen and (max-width: 1300px){
