@@ -202,7 +202,6 @@ createApp({
                     status: 'sent',
                     triggered: false,
                 };
-                console.log(this.contactList[this.activeContact].messages);
                 this.contactList[this.activeContact].messages.push(newMsg);
                 this.newMessage = '';
                 setTimeout(this.botAnswer, 2000);
@@ -234,7 +233,8 @@ createApp({
             messageObject.triggered = !messageObject.triggered
         },
         msgPosition(msgIndex){
-            if(msgIndex < 10){
+            let message = document.querySelectorAll('.ivy_msg')[msgIndex]
+            if(message.offsetTop < window.innerHeight / 2){
                 return true
             }
             return false
