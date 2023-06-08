@@ -340,8 +340,17 @@ body{
 }
 
 .ivy_menu .ivy_pop_up{
-    right: 100%;
+    right: 50%;
     width: 250px;
+}
+
+.ivy_chat_header .ivy_command_box{
+    column-gap: 0;
+    padding-right: 0;
+}
+
+.ivy_chat_header i{
+    padding: 0 1rem;
 }
 
 @media screen and (max-width: 1300px){
