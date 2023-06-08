@@ -6,7 +6,7 @@ createApp({
             contactList: [
                 {
                     name: 'Michele',
-                    avatar: '../assets/avatar_1.jpg',
+                    avatar: './assets/avatar_1.jpg',
                     visible: true,
                     messages: [
                         {
@@ -31,7 +31,7 @@ createApp({
                 },
                 {
                     name: 'Fabio',
-                    avatar: '../assets/avatar_2.jpg',
+                    avatar: './assets/avatar_2.jpg',
                     visible: true,
                     messages: [
                         {
@@ -56,7 +56,7 @@ createApp({
                 },
                 {
                     name: 'Samuele',
-                    avatar: '../assets/avatar_3.jpg',
+                    avatar: './assets/avatar_3.jpg',
                     visible: true,
                     messages: [
                         {
@@ -81,7 +81,7 @@ createApp({
                 },
                 {
                     name: 'Alessandro B.',
-                    avatar: '../assets/avatar_4.jpg',
+                    avatar: './assets/avatar_4.jpg',
                     visible: true,
                     messages: [
                         {
@@ -100,7 +100,7 @@ createApp({
                 },
                 {
                     name: 'Alessandro L.',
-                    avatar: '../assets/avatar_5.jpg',
+                    avatar: './assets/avatar_5.jpg',
                     visible: true,
                     messages: [
                         {
@@ -119,7 +119,7 @@ createApp({
                 },
                 {
                     name: 'Claudia',
-                    avatar: '../assets/avatar_6.jpg',
+                    avatar: './assets/avatar_6.jpg',
                     visible: true,
                     messages: [
                         {
@@ -144,7 +144,7 @@ createApp({
                 },
                 {
                     name: 'Federico',
-                    avatar: '../assets/avatar_7.jpg',
+                    avatar: './assets/avatar_7.jpg',
                     visible: true,
                     messages: [
                         {
@@ -161,7 +161,7 @@ createApp({
                 },
                 {
                     name: 'Davide',
-                    avatar: '../assets/avatar_8.jpg',
+                    avatar: './assets/avatar_8.jpg',
                     visible: true,
                     messages: [
                         {
@@ -270,7 +270,7 @@ createApp({
                 this.contactList.push(
                     {
                         name: 'Try Boolzap For The First Time',
-                        avatar: '../assets/default_avatar.png',
+                        avatar: './assets/default_avatar.png',
                         visible: true,
                         messages: [
                             {
