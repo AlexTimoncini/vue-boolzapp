@@ -258,6 +258,9 @@ createApp({
                 return contactUser.messages[msgList.length - 1].date.substring(11,16)
             }
             return '00:00';
+        },
+        deleteAllMessages(){
+            this.contactList[this.activeContact].messages = [];
         }
     }
 }).mount('#app')
