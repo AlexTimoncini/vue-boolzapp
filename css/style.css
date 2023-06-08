@@ -14,6 +14,10 @@ input:focus {
     display: none!important;
 }
 
+.d-flex{
+    display: flex;
+}
+
 body{
     font-family: 'Arimo', sans-serif;
     height: 100vh;

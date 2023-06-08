@@ -79,8 +79,14 @@
         <section id="chat">
             <header class="ivy_header">
                 <nav class="ivy_navbar">
-                    <div class="ivy_profile_box">
-                        <img :src="contactList[activeContact].avatar" alt="User Profile Image" class="ivy_profile_img">
+                    <div class="d-flex">
+                        <div class="ivy_profile_box">
+                            <img :src="contactList[activeContact].avatar" alt="User Profile Image" class="ivy_profile_img">
+                        </div>
+                        <div class="ivy_text_box">
+                            <p>{{ contactList[activeContact].name }}</p>
+                            <p>Last seen online at {{ contactList[activeContact].messages[contactList[activeContact].messages.length -1].date.substring(11,16) }}</p>
+                        </div>
                     </div>
                     <div class="ivy_command_box">
                         <i class="fa-solid fa-magnifying-glass"></i>
