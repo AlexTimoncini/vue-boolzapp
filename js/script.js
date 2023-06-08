@@ -231,7 +231,7 @@ createApp({
             }
         },
         deleteMsgPopUp(messageObject){
-            messageObject.triggered = !messageObject.triggered
+            messageObject.triggered = !messageObject.triggered;
         },
         msgPosition(msgIndex){
             let message = document.querySelectorAll('.ivy_msg')[msgIndex]
@@ -241,7 +241,23 @@ createApp({
             return false
         },
         removeMsg(msgIndex, msgList){
-            msgList.splice(msgIndex, 1);
+            if(msgList.length > 1){
+                msgList.splice(msgIndex, 1);
+            } else {
+                msgList.pop();
+            }
+        },
+        noLastMsg(msgList, contactUser){
+            if(msgList.length > 0){
+                return contactUser.messages[msgList.length - 1].message
+            }
+            return 'Say Hello For The First Time!';
+        },
+        noLastDate(msgList, contactUser){
+            if(msgList.length > 0){
+                return contactUser.messages[msgList.length - 1].date.substring(11,16)
+            }
+            return '00:00';
         }
     }
 }).mount('#app')

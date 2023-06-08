@@ -57,21 +57,21 @@
                         </div>
                         <div class="ivy_text_box">
                             <p class="ivy_contact_name">{{ contact.name }}</p>
-                            <p class="ivy_last_msg">{{ contact.messages[contact.messages.length - 1].message }}</p>
+                            <p class="ivy_last_msg">{{ noLastMsg(contact.messages, contact) }}</p>
                         </div>
-                        <p class="ivy_last_msg_date">{{ contact.messages[contact.messages.length - 1].date.substring(11,16) }}</p>
+                        <p class="ivy_last_msg_date">{{ noLastDate(contact.messages, contact) }}</p>
                     </li>
                 </ul>
                 <ul id="contacts_list" v-else>
-                    <li class="ivy_contact" v-for="(contact, index) in contactList" @click="changeActive(index)" :class="contact.name.toLowerCase().includes(userSearch.toLowerCase()) ? 'Daje Ti ho trovato' : 'd-none'">
+                    <li class="ivy_contact" v-for="(contact, index) in contactList" @click="changeActive(index)" :class="contact.name.toLowerCase().includes(userSearch.toLowerCase()) ? '' : 'd-none'">
                         <div class="ivy_profile_box">
                             <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
                         </div>
                         <div class="ivy_text_box">
                             <p class="ivy_contact_name">{{ contact.name }}</p>
-                            <p class="ivy_last_msg">{{ contact.messages[contact.messages.length - 1].message }}</p>
+                            <p class="ivy_last_msg">{{ noLastMsg(contact.messages, contact) }}</p>
                         </div>
-                        <p class="ivy_last_msg_date">{{ contact.messages[contact.messages.length - 1].date.substring(11,16) }}</p>
+                        <p class="ivy_last_msg_date">{{ noLastDate(contact.messages, contact) }}</p>
                     </li>
                 </ul>
             </main>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="ivy_text_box">
                             <p>{{ contactList[activeContact].name }}</p>
-                            <p>Last seen online at {{ contactList[activeContact].messages[contactList[activeContact].messages.length -1].date.substring(11,16) }}</p>
+                            <p>Last seen online at {{ noLastDate(contactList[activeContact].messages, contactList[activeContact]) }}</p>
                         </div>
                     </div>
                     <div class="ivy_command_box">
