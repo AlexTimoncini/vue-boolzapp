@@ -6,6 +6,10 @@ padding: 0;
 box-sizing: border-box;
 }
 
+input:focus {
+    outline: none;
+}
+
 .d-none{
     display: none!important;
 }
