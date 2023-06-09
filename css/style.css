@@ -38,6 +38,7 @@ body{
 
 #contacts{
     width: 35%;
+    user-select: none;
 }
 
 #chat{
@@ -49,6 +50,7 @@ body{
 .ivy_left_section{
     width: 35%;
     background-image: linear-gradient(rgb(0,128,105) calc(150px - 2rem), #ffffff 0);
+    user-select: none;
 }
 
 .ivy_com_header{
@@ -146,6 +148,7 @@ body{
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1rem;
+    user-select: none;
 }
 
 .ivy_searchbar_box{
