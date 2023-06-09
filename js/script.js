@@ -197,6 +197,9 @@ createApp({
             communitiesBtn: false,
             newChatBtn: false,
             noChatVisible: false,
+            triggerFind: false,
+            msgSearch: '',
+            lookingForMsg: false,
         }
     },
     methods: {
@@ -300,6 +303,13 @@ createApp({
             this.newChatBtn = false;
             contactObj.visible = true;
             this.activeContact = ObjIndex;
-        }  
+        },        
+        searchingMsg(){
+            if(this.msgSearch.length > 0){
+                this.lookingForMsg = true;
+            } else {
+                this.lookingForMsg = false;
+            }
+        }
     }
 }).mount('#app')

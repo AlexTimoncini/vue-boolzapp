@@ -163,7 +163,6 @@
                 </main>
             </section>           
         </Transition>
-
         <section id="chat">
             <header class="ivy_chat_header">
                 <nav class="ivy_navbar">
@@ -177,7 +176,7 @@
                         </div>
                     </div>
                     <div class="ivy_command_box">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-magnifying-glass" @click="triggerFind = !triggerFind"></i>
                         <div class="ivy_menu" @click="triggerMenu = !triggerMenu">
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                             <ul v-if="triggerMenu" class="ivy_pop_up ivy_visibleDown">
@@ -222,6 +221,38 @@
                 </div>
             </nav>
         </section>
+        <Transition name="slide-right">
+            <div v-if="triggerFind" id="findMessage" class="ivy_left_section">
+                <header class="ivy_header">
+                    <nav class="ivy_navbar">
+                        <div class="ivy_command_box">
+                            <i class="fa-solid fa-x" @click="triggerFind = !triggerFind"></i>
+                            <p>Search Messages</p>
+                        </div>
+                    </nav>
+                    <div class="ivy_searchbar_box">
+                        <div class="ivy_search_icon">
+                            <i v-if="msgSearch == ''" class="fa-solid fa-magnifying-glass"></i>
+                            <i v-else class="fa-solid fa-arrow-left" @click="msgSearch = ''"></i>
+                        </div>
+                        <input type="text" name="find_msg_searchbar" id="find_msg_searchbar" placeholder="Search..." v-model="msgSearch" @keyUp="searchingMsg()">
+                    </div>
+                </header>
+                <main>
+                    <ul id="foundMsgList" class="contacts_list" v-if="lookingForMsg">
+                        <li class="ivy_found_msg" v-for="message in contactList[activeContact].messages" v-show="message.message.toLowerCase().includes(msgSearch.toLowerCase())">
+                            <p class="ivy_last_msg_date">{{ message.date.substring(0,10) }}</p>
+                            <p class="ivy_last_msg">
+                                <span>{{ message.status == 'sent' ? 'You' : contactList[activeContact].name }} : </span>
+                                <span>
+                                    {{ message.message }}
+                                </span>
+                            </p>
+                        </li>
+                    </ul>
+                </main>
+            </div>
+        </Transition>
     </div>
     <script src="./js/script.js"></script>
 </body>
