@@ -188,6 +188,7 @@ createApp({
             userSearch: '',
             bannerNotification: true,
             triggerMenu: false,
+            communitiesBtn: false,
         }
     },
     methods: {

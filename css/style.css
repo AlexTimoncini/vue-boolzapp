@@ -36,12 +36,68 @@ body{
     display: flex;
 }
 
-#contacts{
+.ivy_left_section{
     width: 35%;
 }
 
 #chat{
     width: 65%;
+}
+
+/** COMMUNITIES SECTION **/
+#communities{
+    background-image: linear-gradient(rgb(0,128,105) calc(150px - 2rem), #ffffff 0);
+}
+
+.ivy_com_header{
+    height: calc(150px - 2rem);
+    color: #ffffff;
+    text-transform: capitalize;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.2rem 1.5rem;
+}
+
+.ivy_back_btn{
+    color: #ffffff;
+    border: none;
+    background: none;
+    font-size: 1.3rem;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.ivy_com_title{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.ivy_com_main{
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.ivy_com_subtitle{
+    font-size: 1.4rem;
+    padding-bottom: 1.3rem;
+}
+
+.ivy_com_par{
+    font-size: 0.9rem;
+    color: rgb(134,150,160);
+    line-height: 1.3rem;
+    padding-bottom: 1.5rem;
+}
+
+.ivy_com_add{
+    border: none;
+    background: rgb(0,128,105);
+    color: #ffffff;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .ivy_navbar{
@@ -351,6 +407,22 @@ body{
 
 .ivy_chat_header i{
     padding: 0 1rem;
+}
+
+.slide-right-enter-active {
+    transition: all 0.5s ease-out;
+    z-index: -1;
+}
+
+.slide-right-leave-active {
+    transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-right-enter-from,
+.slide-right-leave-to {
+    z-index: -1;
+    transform: translateX(20px);
+    opacity: 0;
 }
 
 @media screen and (max-width: 1300px){
