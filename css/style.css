@@ -104,6 +104,22 @@ body{
     cursor: pointer;
 }
 
+.slide-right-enter-active {
+    transition: all 0.5s ease-out;
+    z-index: -1;
+}
+
+.slide-right-leave-active {
+    transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-right-enter-from,
+.slide-right-leave-to {
+    z-index: -1;
+    transform: translateX(20px);
+    opacity: 0;
+}
+
     /** Section New Chat **/
 #newChat .ivy_com_main{
     padding: 0;
@@ -271,6 +287,14 @@ body{
 .contacts_list{
     overflow-y: scroll;
     background-color: #fff;
+}
+
+.ivy_nochats{
+    text-align: center;
+    text-transform: uppercase;
+    color:#00a884;
+    font-size: 1.2rem;
+    padding-top: 1.5rem;
 }
 
 .ivy_contact{
@@ -455,22 +479,6 @@ body{
 
 .ivy_chat_header i{
     padding: 0 1rem;
-}
-
-.slide-right-enter-active {
-    transition: all 0.5s ease-out;
-    z-index: -1;
-}
-
-.slide-right-leave-active {
-    transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-right-enter-from,
-.slide-right-leave-to {
-    z-index: -1;
-    transform: translateX(20px);
-    opacity: 0;
 }
 
 @media screen and (max-width: 1300px){

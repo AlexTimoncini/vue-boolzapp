@@ -195,7 +195,8 @@ createApp({
             bannerNotification: true,
             triggerMenu: false,
             communitiesBtn: false,
-            newChatBtn: false
+            newChatBtn: false,
+            noChatVisible: false,
         }
     },
     methods: {
@@ -272,7 +273,28 @@ createApp({
         },
         deleteChat(){
             this.contactList[this.activeContact].visible = false;
-            this.activeContact++;
+            if (this.contactList.findIndex(contact => contact.visible === true) > -1){
+                let found = this.contactList.findIndex(contact => contact.visible === true);
+                this.activeContact = found;
+            } else if (!(this.contactList.findIndex(contact => contact.name === 'Try Boolzap For The First Time') > -1)){
+                this.contactList.push(
+                    {
+                        name: 'Try Boolzap For The First Time',
+                        avatar: './assets/default_avatar.png',
+                        visible: true,
+                        messages: [
+                            {
+                                date: '07/06/2023 11:30:55',
+                                message: 'Ciao, raccontami una storia!',
+                                status: 'received'
+                            },
+                        ]
+                    }
+                )
+                this.activeContact = this.contactList.length - 1
+            } else {
+                this.noChatVisible = true;
+            }
         }   
     }
 }).mount('#app')
