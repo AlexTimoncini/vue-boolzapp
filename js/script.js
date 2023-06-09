@@ -8,6 +8,7 @@ createApp({
                     name: 'Michele',
                     avatar: './assets/avatar_1.jpg',
                     visible: true,
+                    about: 'Napoli Nel Cuore',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -33,6 +34,7 @@ createApp({
                     name: 'Fabio',
                     avatar: './assets/avatar_2.jpg',
                     visible: true,
+                    about: '- Le patate non sono trattori -',
                     messages: [
                         {
                             date: '20/03/2020 16:30:00',
@@ -83,6 +85,7 @@ createApp({
                     name: 'Alessandro B.',
                     avatar: './assets/avatar_4.jpg',
                     visible: true,
+                    about: 'Non mi lavo dal 2019',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -102,6 +105,7 @@ createApp({
                     name: 'Alessandro L.',
                     avatar: './assets/avatar_5.jpg',
                     visible: true,
+                    about: 'La vita è come un campo di patate',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -121,6 +125,7 @@ createApp({
                     name: 'Claudia',
                     avatar: './assets/avatar_6.jpg',
                     visible: true,
+                    about: 'Daje Macko che in Eul ci arriviamo!',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -146,6 +151,7 @@ createApp({
                     name: 'Federico',
                     avatar: './assets/avatar_7.jpg',
                     visible: true,
+                    about: 'CheckMate!',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',

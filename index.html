@@ -58,9 +58,8 @@
                             </div>
                             <div class="ivy_text_box">
                                 <p class="ivy_contact_name">{{ contact.name }}</p>
-                                <p class="ivy_last_msg">{{ noLastMsg(contact.messages, contact) }}</p>
+                                <p class="ivy_last_msg">{{ contact.about != null ? contact.about : "Hi, I'm new to Boolzap!" }}</p>
                             </div>
-                            <p class="ivy_last_msg_date">{{ noLastDate(contact.messages, contact) }}</p>
                         </li>
                     </ul>
                     <ul class="contacts_list" v-else>
