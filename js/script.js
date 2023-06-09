@@ -189,6 +189,7 @@ createApp({
             bannerNotification: true,
             triggerMenu: false,
             communitiesBtn: false,
+            newChatBtn: false
         }
     },
     methods: {

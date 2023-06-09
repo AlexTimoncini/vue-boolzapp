@@ -36,7 +36,7 @@ body{
     display: flex;
 }
 
-.ivy_left_section{
+#contacts{
     width: 35%;
 }
 
@@ -44,8 +44,10 @@ body{
     width: 65%;
 }
 
-/** COMMUNITIES SECTION **/
-#communities{
+/** HIDDEN LEFT SECTION **/
+
+.ivy_left_section{
+    width: 35%;
     background-image: linear-gradient(rgb(0,128,105) calc(150px - 2rem), #ffffff 0);
 }
 
@@ -100,6 +102,44 @@ body{
     cursor: pointer;
 }
 
+    /** Section New Chat **/
+#newChat .ivy_com_main{
+    padding: 0;
+    text-align: left;
+}
+
+#newChat .ivy_searchbar_box input{
+    margin-right: 0;
+}
+
+.ivy_profile_default{
+    height: calc(60px - 1rem);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: #00a884;
+    font-size: 1rem;
+    color: #ffffff;
+    display: flex;
+}
+
+.ivy_profile_default i{
+    margin: auto;
+}
+
+#newChat .ivy_contact_title:hover{
+    background: none;
+}
+
+#newChat .ivy_contact_title h2{
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 15px 2rem;
+    color: rgb(0,128,105);
+    text-transform: uppercase;
+}
+
+/****/
+
 .ivy_navbar{
     height: 60px;
     background-color: #f0f2f5;
@@ -142,6 +182,11 @@ body{
 
 .ivy_search_icon i{
     margin: auto;
+}
+
+.ivy_search_icon .fa-arrow-left{
+    color:#00a884;
+    cursor: pointer;
 }
 
 .ivy_profile_box{
@@ -220,7 +265,7 @@ body{
     cursor: pointer;
 }
 
-#contacts_list{
+.contacts_list{
     overflow-y: scroll;
     background-color: #fff;
 }

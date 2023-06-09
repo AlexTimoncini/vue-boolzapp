@@ -15,7 +15,90 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <div id="app">
         <Transition mode="out-in" name="slide-right">
-            <section v-if="!communitiesBtn" id="contacts" class="ivy_left_section">
+            <section v-if="newChatBtn" id="newChat" class="ivy_left_section">
+                <header class="ivy_com_header">
+                    <button class="ivy_back_btn" @click="newChatBtn = !newChatBtn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <h1 class="ivy_com_title">new chat</h1>
+                </header>
+                <main class="ivy_com_main">
+                    <div class="ivy_searchbar_box">
+                        <div class="ivy_search_icon">
+                            <Transition mode="out-in">
+                                <i v-if="userSearch == ''" class="fa-solid fa-magnifying-glass"></i>
+                                <i v-else class="fa-solid fa-arrow-left" @click="userSearch = ''"></i>
+                            </Transition>
+                        </div>
+                        <input type="text" name="newChat_searchbar" id="newChat_searchbar" placeholder="Search or start a new chat" v-model="userSearch" @keyUp="searchingContact()">
+                    </div>
+                    <ul class="contacts_list" v-if="!lookingFor">
+                        <li class="ivy_contact">
+                            <div class="ivy_profile_default">
+                                <i class="fa-solid fa-user-group"></i>
+                            </div>
+                            <div class="ivy_text_box">
+                                <p class="ivy_contact_name">New group</p>
+                            </div>
+                        </li>
+                        <li class="ivy_contact">
+                            <div class="ivy_profile_default">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div class="ivy_text_box">
+                                <p class="ivy_contact_name">New community</p>
+                            </div>
+                        </li>
+                        <li class="ivy_contact ivy_contact_title">
+                            <h2>contacts on boolzap</h2>
+                        </li>
+                        <li class="ivy_contact" v-for="(contact, index) in contactList">
+                            <div class="ivy_profile_box">
+                                <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
+                            </div>
+                            <div class="ivy_text_box">
+                                <p class="ivy_contact_name">{{ contact.name }}</p>
+                                <p class="ivy_last_msg">{{ noLastMsg(contact.messages, contact) }}</p>
+                            </div>
+                            <p class="ivy_last_msg_date">{{ noLastDate(contact.messages, contact) }}</p>
+                        </li>
+                    </ul>
+                    <ul class="contacts_list" v-else>
+                        <li class="ivy_contact ivy_contact_title">
+                            <h2>contacts on boolzap</h2>
+                        </li>
+                        <li class="ivy_contact" v-for="(contact, index) in contactList" :class="contact.name.toLowerCase().includes(userSearch.toLowerCase()) ? '' : 'd-none'">
+                            <div class="ivy_profile_box">
+                                <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
+                            </div>
+                            <div class="ivy_text_box">
+                                <p class="ivy_contact_name">{{ contact.name }}</p>
+                                <p class="ivy_last_msg">{{ noLastMsg(contact.messages, contact) }}</p>
+                            </div>
+                            <p class="ivy_last_msg_date">{{ noLastDate(contact.messages, contact) }}</p>
+                        </li>
+                    </ul>
+                </main>
+            </section>
+            <section v-else-if="communitiesBtn" id="communities" class="ivy_left_section">
+                <header class="ivy_com_header">
+                    <button class="ivy_back_btn" @click="communitiesBtn = !communitiesBtn">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <h1 class="ivy_com_title">communities</h1>
+                </header>
+                <main class="ivy_com_main">
+                    <div class="ivy_comm_jumbo">
+                        <img src="./assets/com_jumbo.png" alt="communities default image">
+                    </div>
+                    <h2 class="ivy_com_subtitle">Introducing communities</h2>
+                    <p class="ivy_com_par">Easily organize your related groups and send announcements.
+                        <br>Now, your communities, like neighborhoods or schools, can have their own space.
+                    </p>
+                    <button class="ivy_com_add">Start a community</button>
+                </main>
+            </section>     
+            <section v-else id="contacts">
                 <header class="ivy_header">
                     <nav class="ivy_navbar">
                         <div class="ivy_profile_box">
@@ -24,13 +107,14 @@
                         <div class="ivy_command_box">
                             <i class="fa-solid fa-users" @click="communitiesBtn = !communitiesBtn"></i>
                             <i class="fa-solid fa-circle-notch"></i>
-                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-message" @click="newChatBtn = !newChatBtn"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </nav>
                     <div class="ivy_searchbar_box">
                         <div class="ivy_search_icon">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i v-if="userSearch == ''" class="fa-solid fa-magnifying-glass"></i>
+                            <i v-else class="fa-solid fa-arrow-left" @click="userSearch = ''"></i>
                         </div>
                         <input type="text" name="contacts_searchbar" id="contacts_searchbar" placeholder="Search or start a new chat" v-model="userSearch" @keyUp="searchingContact()">
                         <i class="fa-solid fa-filter"></i>
@@ -51,7 +135,7 @@
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
-                    <ul id="contacts_list" v-if="!lookingFor">
+                    <ul class="contacts_list" v-if="!lookingFor">
                         <li class="ivy_contact" v-for="(contact, index) in contactList" @click="changeActive(index)" :class="activeContact === index ? 'ivy_active' : ''">
                             <div class="ivy_profile_box">
                                 <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
@@ -60,10 +144,9 @@
                                 <p class="ivy_contact_name">{{ contact.name }}</p>
                                 <p class="ivy_last_msg">{{ noLastMsg(contact.messages, contact) }}</p>
                             </div>
-                            <p class="ivy_last_msg_date">{{ noLastDate(contact.messages, contact) }}</p>
                         </li>
                     </ul>
-                    <ul id="contacts_list" v-else>
+                    <ul class="contacts_list" v-else>
                         <li class="ivy_contact" v-for="(contact, index) in contactList" @click="changeActive(index)" :class="contact.name.toLowerCase().includes(userSearch.toLowerCase()) ? '' : 'd-none'">
                             <div class="ivy_profile_box">
                                 <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
@@ -77,24 +160,6 @@
                     </ul>
                 </main>
             </section>           
-            <section v-else id="communities" class="ivy_left_section">
-                <header class="ivy_com_header">
-                    <button class="ivy_back_btn" @click="communitiesBtn = !communitiesBtn">
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </button>
-                    <h1 class="ivy_com_title">communities</h1>
-                </header>
-                <main class="ivy_com_main">
-                    <div class="ivy_comm_jumbo">
-                        <img src="./assets/com_jumbo.png" alt="communities default image">
-                    </div>
-                    <h2 class="ivy_com_subtitle">Introducing communities</h2>
-                    <p class="ivy_com_par">Easily organize your related groups and send announcements.
-                        <br>Now, your communities, like neighborhoods or schools, can have their own space.
-                    </p>
-                    <button class="ivy_com_add">Start a community</button>
-                </main>
-            </section>     
         </Transition>
 
         <section id="chat">
