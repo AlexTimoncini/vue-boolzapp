@@ -295,6 +295,11 @@ createApp({
             } else {
                 this.noChatVisible = true;
             }
-        }   
+        },
+        startChatting(contactObj, ObjIndex){
+            this.newChatBtn = false;
+            contactObj.visible = true;
+            this.activeContact = ObjIndex;
+        }  
     }
 }).mount('#app')

@@ -52,7 +52,7 @@
                         <li class="ivy_contact ivy_contact_title">
                             <h2>contacts on boolzap</h2>
                         </li>
-                        <li class="ivy_contact" v-for="(contact, index) in contactList">
+                        <li class="ivy_contact" v-for="(contact, index) in contactList" @click="startChatting(contact, index)">
                             <div class="ivy_profile_box">
                                 <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
                             </div>
@@ -66,7 +66,7 @@
                         <li class="ivy_contact ivy_contact_title">
                             <h2>contacts on boolzap</h2>
                         </li>
-                        <li class="ivy_contact" v-for="(contact, index) in contactList" :class="contact.name.toLowerCase().includes(userSearch.toLowerCase()) ? '' : 'd-none'">
+                        <li class="ivy_contact" v-for="(contact, index) in contactList" :class="contact.name.toLowerCase().includes(userSearch.toLowerCase()) ? '' : 'd-none'" @click="startChatting(contact, index)">
                             <div class="ivy_profile_box">
                                 <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
                             </div>
