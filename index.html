@@ -135,7 +135,7 @@
                         </button>
                     </div>
                     <ul class="contacts_list" v-if="!lookingFor">
-                        <li class="ivy_contact" v-for="(contact, index) in contactList" @click="changeActive(index)" :class="activeContact === index ? 'ivy_active' : ''">
+                        <li class="ivy_contact" v-for="(contact, index) in contactList" @click="changeActive(index)" :class="activeContact === index ? 'ivy_active' : ''" v-show="contact.visible">
                             <div class="ivy_profile_box">
                                 <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
                             </div>
@@ -146,7 +146,7 @@
                         </li>
                     </ul>
                     <ul class="contacts_list" v-else>
-                        <li class="ivy_contact" v-for="(contact, index) in contactList" @click="changeActive(index)" :class="contact.name.toLowerCase().includes(userSearch.toLowerCase()) ? '' : 'd-none'">
+                        <li class="ivy_contact" v-for="(contact, index) in contactList" @click="changeActive(index)" :class="activeContact === index ? 'ivy_active' : ''" v-show="contact.name.toLowerCase().includes(userSearch.toLowerCase()) && contact.visible">
                             <div class="ivy_profile_box">
                                 <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
                             </div>

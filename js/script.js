@@ -271,25 +271,8 @@ createApp({
             this.contactList[this.activeContact].messages = [];
         },
         deleteChat(){
-            if(this.contactList.length > 1){
-                this.contactList.splice(this.activeContact, 1)
-            } else {
-                this.contactList.pop();
-                this.contactList.push(
-                    {
-                        name: 'Try Boolzap For The First Time',
-                        avatar: './assets/default_avatar.png',
-                        visible: true,
-                        messages: [
-                            {
-                                date: '07/06/2023 11:30:55',
-                                message: 'Ciao, raccontami una storia!',
-                                status: 'received'
-                            },
-                        ]
-                    }
-                )
-            }
-        }
+            this.contactList[this.activeContact].visible = false;
+            this.activeContact++;
+        }   
     }
 }).mount('#app')
