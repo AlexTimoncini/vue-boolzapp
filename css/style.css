@@ -6,6 +6,7 @@ padding: 0;
 box-sizing: border-box;
 }
 
+/**GENERAL STYLE**/
 input:focus {
     outline: none;
 }
@@ -35,18 +36,6 @@ body{
     min-width: 737px;
     display: flex;
 }
-
-#contacts{
-    width: 35%;
-    user-select: none;
-    flex-shrink: 1;
-}
-
-#chat{
-    width: 65%;
-    flex-shrink: 5;
-}
-
 
 /** HIDDEN LEFT SECTION **/
 
@@ -205,12 +194,12 @@ body{
     line-height: 1.5rem;
 }
 
-.ivy_founded_letters{
-    color:#00a884;
+/**SECTION CONTACT LIST**/
+#contacts{
+    width: 35%;
+    user-select: none;
+    flex-shrink: 1;
 }
-
-
-/****/
 
 .ivy_navbar{
     height: 60px;
@@ -391,6 +380,12 @@ body{
     color: #6e7072;
 }
 
+/**SECTION CHAT**/
+#chat{
+    width: 65%;
+    flex-shrink: 5;
+}
+
 #chat .ivy_navbar:first-child,
 #findMessage .ivy_navbar{
     border-left: 2px solid #d3d9dd;
@@ -536,6 +531,7 @@ body{
     padding: 0 1rem;
 }
 
+/**MEDIA QUERIES**/
 @media screen and (max-width: 1300px){
     #contacts{
         width: 45%;
