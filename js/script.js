@@ -186,7 +186,8 @@ createApp({
                             status: 'received'
                         }
                     ],
-                }
+                },
+                
             ],
             activeContact: 0,
             newMessage: '',

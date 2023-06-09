@@ -171,6 +171,15 @@ body{
     border-bottom: 1px solid #E9EDEF;
 }
 
+.ivy_find_main{
+    height: calc(100% - 60px - 45px);
+
+}
+
+#foundMsgList{
+    height: 100%;
+}
+
 .fa-x{
     padding: 0 1rem;
 }

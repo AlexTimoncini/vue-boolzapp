@@ -238,7 +238,7 @@
                         <input type="text" name="find_msg_searchbar" id="find_msg_searchbar" placeholder="Search..." v-model="msgSearch" @keyUp="searchingMsg()">
                     </div>
                 </header>
-                <main>
+                <main class="ivy_find_main">
                     <ul id="foundMsgList" class="contacts_list" v-if="lookingForMsg">
                         <li class="ivy_found_msg" v-for="message in contactList[activeContact].messages" v-show="message.message.toLowerCase().includes(msgSearch.toLowerCase())">
                             <p class="ivy_last_msg_date">{{ message.date.substring(0,10) }}</p>
