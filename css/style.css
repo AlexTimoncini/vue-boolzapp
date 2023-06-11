@@ -506,6 +506,20 @@ input:focus {
     background-color:#f0f2f5;
 }
 
+.slide-down-enter-active {
+    transition: all 0.5s ease-out;
+}
+
+.slide-down-leave-active {
+    transition: all 0.5s ease-in-out;
+}
+
+.slide-down-enter-from,
+.slide-down-leave-to {
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
 .ivy_sent .ivy_pop_up{
     right: 100%;
 }

@@ -116,14 +116,16 @@
                                 </div>
                                 <div class="ivy_menu" @click="triggerMenuContact = !triggerMenuContact" :class="triggerMenuContact ? 'ivy_active_ell' : ''">
                                     <i class="fa-solid fa-ellipsis-vertical" ></i>
-                                    <ul v-if="triggerMenuContact" class="ivy_pop_up ivy_visibleDown">
-                                        <li>New group</li>
-                                        <li>New community</li>
-                                        <li>Starred messages</li>
-                                        <li>Selecet Chats</li>
-                                        <li>Settings</li>
-                                        <li>Log Out</li>
-                                    </ul>
+                                    <Transition name="slide-down">
+                                        <ul v-if="triggerMenuContact" class="ivy_pop_up ivy_visibleDown">
+                                            <li>New group</li>
+                                            <li>New community</li>
+                                            <li>Starred messages</li>
+                                            <li>Selecet Chats</li>
+                                            <li>Settings</li>
+                                            <li>Log Out</li>
+                                        </ul>
+                                    </Transition>
                                 </div>                        
                             </div>
                         </nav>
@@ -196,17 +198,19 @@
                             <i class="fa-solid fa-magnifying-glass" @click="triggerFind = !triggerFind"></i>
                             <div class="ivy_menu" @click="triggerMenuChat = !triggerMenuChat" :class="triggerMenuChat ? 'ivy_active_ell' : ''">
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
-                                <ul v-if="triggerMenuChat" class="ivy_pop_up ivy_visibleDown">
-                                    <li>Contact info</li>
-                                    <li>Select Messages</li>
-                                    <li>Close Chat</li>
-                                    <li>Mute Notifications</li>
-                                    <li>Disappering Messages</li>
-                                    <li @click="deleteAllMessages()">Clear Messages</li>
-                                    <li @click="deleteChat()">Delete Chat</li>
-                                    <li>Report</li>
-                                    <li>Block</li>
-                                </ul>
+                                <Transition name="slide-down">
+                                    <ul v-if="triggerMenuChat" class="ivy_pop_up ivy_visibleDown">
+                                        <li>Contact info</li>
+                                        <li>Select Messages</li>
+                                        <li>Close Chat</li>
+                                        <li>Mute Notifications</li>
+                                        <li>Disappering Messages</li>
+                                        <li @click="deleteAllMessages()">Clear Messages</li>
+                                        <li @click="deleteChat()">Delete Chat</li>
+                                        <li>Report</li>
+                                        <li>Block</li>
+                                    </ul>
+                                </Transition>
                             </div>
                         </div>
                     </nav>
