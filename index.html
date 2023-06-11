@@ -104,10 +104,26 @@
                             <img src="./assets/avatar_io.jpg" alt="User Profile Image" class="ivy_profile_img">
                         </div>
                         <div class="ivy_command_box">
-                            <i class="fa-solid fa-users" @click="communitiesBtn = !communitiesBtn"></i>
-                            <i class="fa-solid fa-circle-notch"></i>
-                            <i class="fa-solid fa-message" @click="newChatBtn = !newChatBtn"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <div class="ivy_menu" @click="communitiesBtn = !communitiesBtn">
+                                <i class="fa-solid fa-users" ></i>
+                            </div>
+                            <div class="ivy_menu">
+                                <i class="fa-solid fa-circle-notch"></i>
+                            </div>
+                            <div class="ivy_menu" @click="newChatBtn = !newChatBtn">
+                                <i class="fa-solid fa-message" ></i>
+                            </div>
+                            <div class="ivy_menu" @click="triggerMenuContact = !triggerMenuContact" :class="triggerMenuContact ? 'ivy_active_ell' : ''">
+                                <i class="fa-solid fa-ellipsis-vertical" ></i>
+                                <ul v-if="triggerMenuContact" class="ivy_pop_up ivy_visibleDown">
+                                    <li>New group</li>
+                                    <li>New community</li>
+                                    <li>Starred messages</li>
+                                    <li>Selecet Chats</li>
+                                    <li>Settings</li>
+                                    <li>Log Out</li>
+                                </ul>
+                            </div>                        
                         </div>
                     </nav>
                     <div class="ivy_searchbar_box">
@@ -177,9 +193,9 @@
                     </div>
                     <div class="ivy_command_box">
                         <i class="fa-solid fa-magnifying-glass" @click="triggerFind = !triggerFind"></i>
-                        <div class="ivy_menu" @click="triggerMenu = !triggerMenu">
+                        <div class="ivy_menu" @click="triggerMenuChat = !triggerMenuChat" :class="triggerMenuChat ? 'ivy_active_ell' : ''">
                             <i class="fa-solid fa-ellipsis-vertical"></i>
-                            <ul v-if="triggerMenu" class="ivy_pop_up ivy_visibleDown">
+                            <ul v-if="triggerMenuChat" class="ivy_pop_up ivy_visibleDown">
                                 <li>Contact info</li>
                                 <li>Select Messages</li>
                                 <li>Close Chat</li>
