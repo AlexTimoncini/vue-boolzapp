@@ -23,16 +23,14 @@ input:focus {
     opacity: 1!important;
 }
 
-#app{
-    width: 100%;
-    height: 100vh;
-    display: flex;
+body{
     font-family: 'Arimo', sans-serif;
+    height: 100vh;
     background-image: linear-gradient(#00a884 150px, #dfdfdd 0);
-
+    display: flex;
 }
 
-#app_wrapper{
+#app{
     margin: 2rem auto;
     width: 60%;
     min-width: 737px;
@@ -330,6 +328,7 @@ input:focus {
 
 .contacts_list{
     overflow-y: scroll;
+    overflow-x: hidden;
     background-color: #fff;
 }
 
@@ -406,7 +405,8 @@ input:focus {
     display: flex;
     flex-direction: column;
     height: calc(100% - 60px - 60px);
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #chat_bar{
