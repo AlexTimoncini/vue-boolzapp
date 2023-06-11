@@ -192,7 +192,8 @@ createApp({
             activeContact: 0,
             newMessage: '',
             lookingFor: false,
-            userSearch: '',
+            chatSearch: '',
+            contactSearch: '',
             bannerNotification: true,
             triggerMenu: false,
             communitiesBtn: false,
@@ -236,8 +237,15 @@ createApp({
             } 
             return number;
         },
+        searchingChat(){
+            if(this.chatSearch.length > 0){
+                this.lookingFor = true;
+            } else {
+                this.lookingFor = false;
+            }
+        },
         searchingContact(){
-            if(this.userSearch.length > 0){
+            if(this.contactSearch.length > 0){
                 this.lookingFor = true;
             } else {
                 this.lookingFor = false;

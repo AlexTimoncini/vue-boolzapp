@@ -26,11 +26,11 @@
                     <div class="ivy_searchbar_box">
                         <div class="ivy_search_icon">
                             <Transition mode="out-in">
-                                <i v-if="userSearch == ''" class="fa-solid fa-magnifying-glass"></i>
-                                <i v-else class="fa-solid fa-arrow-left" @click="userSearch = ''"></i>
+                                <i v-if="contactSearch == ''" class="fa-solid fa-magnifying-glass"></i>
+                                <i v-else class="fa-solid fa-arrow-left" @click="contactSearch = ''"></i>
                             </Transition>
                         </div>
-                        <input type="text" name="newChat_searchbar" id="newChat_searchbar" placeholder="Search or start a new chat" v-model="userSearch" @keyUp="searchingContact()">
+                        <input type="text" name="newChat_searchbar" id="newChat_searchbar" placeholder="Search or start a new chat" v-model="contactSearch" @keyUp="searchingContact()">
                     </div>
                     <ul class="contacts_list" v-if="!lookingFor">
                         <li class="ivy_contact">
@@ -66,7 +66,7 @@
                         <li class="ivy_contact ivy_contact_title">
                             <h2>contacts on boolzap</h2>
                         </li>
-                        <li class="ivy_contact" v-for="(contact, index) in contactList" :class="contact.name.toLowerCase().includes(userSearch.toLowerCase()) ? '' : 'd-none'" @click="startChatting(contact, index)">
+                        <li class="ivy_contact" v-for="(contact, index) in contactList" :class="contact.name.toLowerCase().includes(contactSearch.toLowerCase()) ? '' : 'd-none'" @click="startChatting(contact, index)">
                             <div class="ivy_profile_box">
                                 <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
                             </div>
@@ -112,10 +112,10 @@
                     </nav>
                     <div class="ivy_searchbar_box">
                         <div class="ivy_search_icon">
-                            <i v-if="userSearch == ''" class="fa-solid fa-magnifying-glass"></i>
-                            <i v-else class="fa-solid fa-arrow-left" @click="userSearch = ''"></i>
+                            <i v-if="chatSearch == ''" class="fa-solid fa-magnifying-glass"></i>
+                            <i v-else class="fa-solid fa-arrow-left" @click="chatSearch = ''"></i>
                         </div>
-                        <input type="text" name="contacts_searchbar" id="contacts_searchbar" placeholder="Search or start a new chat" v-model="userSearch" @keyUp="searchingContact()">
+                        <input type="text" name="contacts_searchbar" id="contacts_searchbar" placeholder="Search or start a new chat" v-model="chatSearch" @keyUp="searchingChat()">
                         <i class="fa-solid fa-filter"></i>
                     </div>
                 </header>
@@ -149,7 +149,7 @@
                         </li>
                     </ul>
                     <ul class="contacts_list" v-else>
-                        <li class="ivy_contact" v-for="(contact, index) in contactList" @click="changeActive(index)" :class="activeContact === index ? 'ivy_active' : ''" v-show="contact.name.toLowerCase().includes(userSearch.toLowerCase()) && contact.visible">
+                        <li class="ivy_contact" v-for="(contact, index) in contactList" @click="changeActive(index)" :class="activeContact === index ? 'ivy_active' : ''" v-show="contact.name.toLowerCase().includes(chatSearch.toLowerCase()) && contact.visible">
                             <div class="ivy_profile_box">
                                 <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
                             </div>
