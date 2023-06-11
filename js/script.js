@@ -203,6 +203,7 @@ createApp({
             triggerFind: false,
             msgSearch: '',
             lookingForMsg: false,
+            clipMenu: false,
         }
     },
     methods: {
