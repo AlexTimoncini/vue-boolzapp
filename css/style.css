@@ -19,8 +19,18 @@ input:focus {
     display: flex;
 }
 
+.d-flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .opacity_1{
     opacity: 1!important;
+}
+
+.pe-1{
+    padding-right: 0.25rem;
 }
 
 body{
@@ -147,6 +157,105 @@ body{
     padding: 15px 2rem;
     color: rgb(0,128,105);
     text-transform: uppercase;
+}
+
+/**STARRED MESSAGES SECTION**/
+
+#starredMsg{
+    background-image: linear-gradient(rgb(0,128,105) calc(150px - 2rem), #F0F2F5 0);
+}
+
+.ivy_menu.ivy_active_star{
+    background: #017561;
+}
+
+.ivy_active_star .ivy_pop_up{
+    color: #54656f;
+}
+
+.ivy_star_header{
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+}
+
+.ivy_star_pad{
+    padding-bottom: 5px;
+}
+
+.ivy_star_main{
+    height: calc(100% - 150px - 2rem);
+}
+
+#starredMsgList{
+    overflow-y: scroll;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.ivy_starred_msg{
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.ivy_starred_msg:hover{
+    background-color: #E7E9EC;
+}
+
+.ivy_starred_msg .ivy_msg{
+    max-width: 75%;
+    width: auto;
+}
+
+.ivy_star_header_msg{
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#starredMsg .ivy_time_msg{
+    overflow: visible;
+}
+
+.ivy_star_header_msg .ivy_profile_box{
+    height: 30px;
+}
+
+.ivy_star_main_msg{
+    justify-content: space-between;
+}
+
+.ivy_unstar{
+    border: none;
+    color: #ec7171;
+    background: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    position: relative;
+    opacity: 0;
+    transition: all 0.33s;
+}
+
+.ivy_starred_msg:hover .ivy_unstar{
+    opacity: 1;
+}
+
+.ivy_unstar i.fa-slash{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ivy_star_foot{
+    height: 2rem;
+    color: #6e7072;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;   
 }
 
 /** HIDDEN RIGHT SECTION **/
@@ -328,7 +437,6 @@ body{
 
 .contacts_list{
     overflow-y: scroll;
-    overflow-x: hidden;
     background-color: #fff;
 }
 
@@ -406,7 +514,6 @@ body{
     flex-direction: column;
     height: calc(100% - 60px - 60px);
     overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 #chat_bar{
@@ -443,12 +550,12 @@ body{
     overflow: hidden;
 }
 
-.ivy_msg_wrap.ivy_sent .ivy_msg{
+.ivy_sent .ivy_msg{
     background-color: #d9fdd3;
     align-self: flex-end;
 }
 
-.ivy_msg_wrap.ivy_received .ivy_msg{
+.ivy_received .ivy_msg{
     background-color: #fff;
     align-self: flex-start;
 
@@ -536,6 +643,7 @@ body{
     justify-content: center;
     width: 40px;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 #contacts .ivy_menu{

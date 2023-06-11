@@ -15,18 +15,22 @@ createApp({
                             message: 'Hai portato a spasso il cane?',
                             status: 'sent',
                             triggered: false,
+                            starred: false,
+
                         },
                         {
                             date: '10/01/2020 15:50:00',
                             message: 'Ricordati di stendere i panni',
                             status: 'sent',
                             triggered: false,
+                            starred: false,
                         },
                         {
                             date: '10/01/2020 16:15:22',
                             message: 'Tutto fatto!',
                             status: 'received',
                             triggered: false,
+                            starred: false,
                         }
                     ],
                 },
@@ -41,18 +45,21 @@ createApp({
                             message: 'Ciao come stai?',
                             status: 'sent',
                             triggered: false,
+                            starred: false,
                         },
                         {
                             date: '20/03/2020 16:30:55',
                             message: 'Bene grazie! Stasera ci vediamo?',
                             status: 'received',
                             triggered: false,
+                            starred: false,
                         },
                         {
                             date: '20/03/2020 16:35:00',
                             message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                             status: 'sent',
                             triggered: false,
+                            starred: false,
                         }
                     ],
                 },
@@ -66,18 +73,21 @@ createApp({
                             message: 'La Marianna va in campagna',
                             status: 'received',
                             triggered: false,
+                            starred: false,
                         },
                         {
                             date: '28/03/2020 10:20:10',
                             message: 'Sicuro di non aver sbagliato chat?',
                             status: 'sent',
                             triggered: false,
+                            starred: false,
                         },
                         {
                             date: '28/03/2020 16:15:22',
                             message: 'Ah scusa!',
                             status: 'received',
                             triggered: false,
+                            starred: false,
                         }
                     ],
                 },
@@ -92,12 +102,14 @@ createApp({
                             message: 'Lo sai che ha aperto una nuova pizzeria?',
                             status: 'sent',
                             triggered: false,
+                            starred: false,
                         },
                         {
                             date: '10/01/2020 15:50:00',
                             message: 'Si, ma preferirei andare al cinema',
                             status: 'received',
                             triggered: false,
+                            starred: false,
                         }
                     ],
                 },
@@ -112,12 +124,14 @@ createApp({
                             message: 'Ricordati di chiamare la nonna',
                             status: 'sent',
                             triggered: false,
+                            starred: false,
                         },
                         {
                             date: '10/01/2020 15:50:00',
                             message: 'Va bene, stasera la sento',
                             status: 'received',
                             triggered: false,
+                            starred: false,
                         }
                     ],
                 },
@@ -132,18 +146,21 @@ createApp({
                             message: 'Ciao Claudia, hai novità?',
                             status: 'sent',
                             triggered: false,
+                            starred: false,
                         },
                         {
                             date: '10/01/2020 15:50:00',
                             message: 'Non ancora',
                             status: 'received',
                             triggered: false,
+                            starred: false,
                         },
                         {
                             date: '10/01/2020 15:51:00',
                             message: 'Nessuna nuova, buona nuova',
                             status: 'sent',
                             triggered: false,
+                            starred: false,
                         }
                     ],
                 },
@@ -204,6 +221,8 @@ createApp({
             msgSearch: '',
             lookingForMsg: false,
             clipMenu: false,
+            starredMsgBtn: false,
+            triggerMenuStar: false,
         }
     },
     methods: {
@@ -218,6 +237,7 @@ createApp({
                     message: this.newMessage,
                     status: 'sent',
                     triggered: false,
+                    starred: false,
                 };
                 this.contactList[this.activeContact].messages.push(newMsg);
                 this.newMessage = '';
@@ -257,11 +277,7 @@ createApp({
             messageObject.triggered = !messageObject.triggered;
         },
         msgPosition(msgIndex){
-            let message = document.querySelectorAll('.ivy_msg')[msgIndex]
-            if(message.offsetTop < window.innerHeight / 2){
-                return true
-            }
-            return false
+            return true
         },
         removeMsg(msgIndex, msgList){
             if(msgList.length > 1){
@@ -321,6 +337,13 @@ createApp({
             } else {
                 this.lookingForMsg = false;
             }
-        }
+        },
+        unstarAll(){
+            this.contactList.forEach(contact => {
+                contact.messages.forEach(message =>{
+                    message.starred = false
+                });
+            });
+        },
     }
 }).mount('#app')

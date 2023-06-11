@@ -97,7 +97,55 @@
                         </p>
                         <button class="ivy_com_add">Start a community</button>
                     </main>
-                </section>     
+                </section>
+                <section v-else-if="starredMsgBtn" id="starredMsg" class="ivy_left_section">
+                    <header class="ivy_com_header ivy_star_header">
+                        <div class="d-flex">
+                            <button class="ivy_back_btn ivy_star_pad" @click="starredMsgBtn = !starredMsgBtn">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <h1 class="ivy_com_title ivy_star_pad">Starred Message</h1>
+                        </div>
+                        <div class="ivy_menu" @click="triggerMenuStar = !triggerMenuStar" :class="triggerMenuStar ? 'ivy_active_star' : ''">
+                            <i class="fa-solid fa-ellipsis-vertical" ></i>
+                            <Transition name="slide-down">
+                                <ul v-if="triggerMenuStar" class="ivy_pop_up ivy_visibleDown">
+                                    <li @click="unstarAll()">Unstar All</li>
+                                </ul>
+                            </Transition>
+                        </div> 
+                    </header>
+                    <main class="ivy_star_main">
+                        <ul id="starredMsgList">
+                            <li v-for="contact in contactList">
+                                <div class="ivy_starred_msg ivy_received" v-for="message in contact.messages.filter(msg => msg.starred == true)">
+                                    <div class="ivy_star_header_msg d-flex">
+                                        <div class="d-flex-center">
+                                            <div class="ivy_profile_box">
+                                                <img :src="contact.avatar" alt="User Profile Image" class="ivy_profile_img">
+                                            </div>
+                                            <p class="ivy_contact_name">{{ contact.name }}</p>
+                                        </div>
+                                        <p class="ivy_last_msg_date">{{ message.date.substring(0,10) }}</p>
+                                    </div>
+                                    <div class="ivy_star_main_msg d-flex">
+                                        <div class="ivy_msg">
+                                            <p class="ivy_text_msg">{{ message.message }}</p> 
+                                            <p class="ivy_time_msg"><span><i class="fa-solid fa-star pe-1"></i></span>{{ message.date.substring(11,16) }}</p>                     
+                                        </div>
+                                        <button class="ivy_unstar" @click="message.starred = false">
+                                            <i class="fa-solid fa-star"></i>
+                                            <i class="fa-solid fa-slash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </main>
+                    <footer class="ivy_star_foot">
+                        <p>Use Whatsapp on your phone to see older chats and messages.</p>
+                    </footer>
+                </section>       
                 <section v-else id="contacts">
                     <header class="ivy_header">
                         <nav class="ivy_navbar">
@@ -120,7 +168,7 @@
                                         <ul v-if="triggerMenuContact" class="ivy_pop_up ivy_visibleDown">
                                             <li>New group</li>
                                             <li>New community</li>
-                                            <li>Starred messages</li>
+                                            <li @click="starredMsgBtn = !starredMsgBtn">Starred messages</li>
                                             <li>Selecet Chats</li>
                                             <li>Settings</li>
                                             <li>Log Out</li>
@@ -219,11 +267,12 @@
                     <div class="ivy_msg_wrap" v-for="(message, index) in contactList[activeContact].messages" :class="message.status==='sent' ? 'ivy_sent' : 'ivy_received' ">
                         <div class="ivy_msg">
                             <p class="ivy_text_msg">{{ message.message }}</p> 
-                            <p class="ivy_time_msg"><span>{{ message.date.substring(11,16) }}</span></p>                     
+                            <p class="ivy_time_msg"><span v-if="message.starred"><i class="fa-solid fa-star pe-1"></i></span>{{ message.date.substring(11,16) }}</p>                     
                             <div class="ivy_msg_menu" @click="deleteMsgPopUp(message)" :class="message.triggered ? 'opacity_1' : ''">
                                 <i class="fa-solid fa-chevron-down"></i>
                                 <ul v-if="message.triggered" class="ivy_pop_up" :class="!msgPosition(index) ? 'ivy_visibleUp' : 'ivy_visibleDown'">
                                     <li>Message info</li>
+                                    <li @click="message.starred = !message.starred" v-text="message.starred ? 'Unstar' : 'Star'"></li>
                                     <li @click="removeMsg(index, contactList[activeContact].messages)">Delete Message</li>
                                 </ul>
                             </div>
