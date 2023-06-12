@@ -321,10 +321,10 @@
                             </Transition>
                         </div>
                     </div>
-                    <input type="text" name="chat_bar" id="chat_bar" placeholder="Type a message" v-model="newMessage" @keyup.enter="enterNewMsg()">
+                    <input type="text" name="chat_bar" id="chat_bar" placeholder="Type a message" v-model="newMessage" @keyup.enter="enterNewMsg(newMessage)">
                     <div class="ivy_command_box">
                         <i v-if="newMessage == ''" class="fa-solid fa-microphone"></i>
-                        <i v-else class="fa-solid fa-paper-plane" @click="enterNewMsg()"></i>
+                        <i v-else class="fa-solid fa-paper-plane" @click="enterNewMsg(newMessage)"></i>
                     </div>
                 </nav>
             </section>

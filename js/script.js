@@ -230,12 +230,12 @@ createApp({
         changeActive(indexActivated){
             this.activeContact = indexActivated;
         },
-        enterNewMsg(){
-            if (this.newMessage.length > 0){
+        enterNewMsg(messageString){
+            if (messageString.length > 0){
                 let dt = new Date();
                 let newMsg = {
                     date: this.doubleDigit(dt.getUTCDate()) + '/' + this.doubleDigit((dt.getMonth() + 1 )) + '/' + dt.getFullYear() + ' ' + this.doubleDigit(dt.getHours()) + ':' + this.doubleDigit(dt.getMinutes()) + ':' + this.doubleDigit(dt.getSeconds()),
-                    message: this.newMessage,
+                    message: messageString,
                     status: 'sent',
                     triggered: false,
                 };
