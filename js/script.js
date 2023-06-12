@@ -223,6 +223,7 @@ createApp({
             triggerMenuStar: false,
             reportedPopUp: false,
             blockedPopUp: false,
+            blockCheckbox: false,
         }
     },
     methods: {
@@ -347,7 +348,14 @@ createApp({
             });
         },
         reportContact(){
-            console.log(this.contactList[this.activeContact].name + ' has been reported to Boolzap!');
+            if (this.blockCheckbox){
+                this.blockContact();
+                this.deleteAllMessages();
+                this.deleteChat();
+                console.log(this.contactList[this.activeContact].name + ' has been blocked and reported to Boolzap! We will cancel the chat and all the messages!');
+            } else {
+                console.log(this.contactList[this.activeContact].name + ' has been reported to Boolzap!');
+            }
             this.reportedPopUp = false;
         },
         blockContact(){
