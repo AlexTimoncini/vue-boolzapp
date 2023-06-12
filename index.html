@@ -267,7 +267,12 @@
                     <div class="ivy_msg_wrap" v-for="(message, index) in contactList[activeContact].messages" :class="message.status==='sent' ? 'ivy_sent' : 'ivy_received' ">
                         <div class="ivy_msg">
                             <p class="ivy_text_msg">{{ message.message }}</p> 
-                            <p class="ivy_time_msg"><span v-if="message.starred"><i class="fa-solid fa-star pe-1"></i></span>{{ message.date.substring(11,16) }}</p>                     
+                            <p class="ivy_time_msg">
+                                <Transition name="slide-down">
+                                    <span v-if="message.starred"><i class="fa-solid fa-star pe-1"></i></span>
+                                </Transition>
+                                {{ message.date.substring(11,16) }}
+                            </p>                     
                             <div class="ivy_msg_menu" @click="deleteMsgPopUp(message)" :class="message.triggered ? 'opacity_1' : ''">
                                 <i class="fa-solid fa-chevron-down"></i>
                                 <ul v-if="message.triggered" class="ivy_pop_up" :class="!msgPosition(index) ? 'ivy_visibleUp' : 'ivy_visibleDown'">
