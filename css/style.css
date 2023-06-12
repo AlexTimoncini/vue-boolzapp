@@ -105,6 +105,7 @@ body{
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 8px -2px, rgba(0, 0, 0, 0.3) 0px 4px 8px -4px;
 }
 
 .slide-right-enter-active {
@@ -750,6 +751,99 @@ body{
     opacity: 0;
 }
 
+/**BLOCK REPORT POPUP**/
+.ivy_pop_up_bg{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+}
+
+.ivy_screen_pop_up{
+    margin: auto;
+    background-color: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    width: 600px;
+    padding: 1rem;
+}
+
+.ivy_pop_title{
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding-bottom: 1rem;
+}
+
+.ivy_pop_checkbox{
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #c0c7cb;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+}
+
+.ivy_pop_checkbox label{
+    font-size: 1.1rem;
+    padding-left: 1rem;
+}
+
+.ivy_pop_checkbox input[type=checkbox]{
+    accent-color:  #008069;
+    transform: scale(1.5);
+    margin-left: 0.25rem;
+    }
+
+.ivy_pop_desc{
+    padding-bottom: 1rem;
+    font-size: 0.9rem;
+    color:#5e6e77;
+}
+
+.ivy_btn_box{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    column-gap: 1rem;
+}
+
+button.ivy_com_add.inverted{
+    color:#008069;
+    background-color: #fff;
+}
+
+.opacity-enter-active {
+    transition: all 0.5s ease-out;
+}
+
+.opacity-leave-active {
+    transition: all 0.5s ease-in-out;
+}
+
+.opacity-enter-from,
+.opacity-leave-to {
+    opacity: 0;
+}
+
+.zoom-in-enter-active {
+    animation: zoom-in 0.5s ease-in-out;
+}
+
+.zoom-in-leave-active {
+    animation: zoom-in 0.5s ease-in-out reverse;
+}
+
+@keyframes zoom-in {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
 /**MEDIA QUERIES**/
 @media screen and (max-width: 1300px){
     #contacts{

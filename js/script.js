@@ -221,6 +221,8 @@ createApp({
             clipMenu: false,
             starredMsgBtn: false,
             triggerMenuStar: false,
+            reportedPopUp: false,
+            blockedPopUp: false,
         }
     },
     methods: {
@@ -343,6 +345,14 @@ createApp({
                     message.starred = false
                 });
             });
+        },
+        reportContact(){
+            console.log(this.contactList[this.activeContact].name + ' has been reported to Boolzap!');
+            this.reportedPopUp = false;
+        },
+        blockContact(){
+            console.log(this.contactList[this.activeContact].name + ' has been blocked!');
+            this.blockedPopUp = false;
         },
     }
 }).mount('#app')

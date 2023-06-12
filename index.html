@@ -255,8 +255,8 @@
                                         <li>Disappering Messages</li>
                                         <li @click="deleteAllMessages()">Clear Messages</li>
                                         <li @click="deleteChat()">Delete Chat</li>
-                                        <li>Report</li>
-                                        <li>Block</li>
+                                        <li @click="reportedPopUp = !reportedPopUp">Report</li>
+                                        <li @click="blockedPopUp = !blockedPopUp">Block</li>
                                     </ul>
                                 </Transition>
                             </div>
@@ -358,6 +358,39 @@
                             </li>
                         </ul>
                     </main>
+                </div>
+            </Transition>
+            <Transition name="opacity">
+                <div v-if="blockedPopUp || reportedPopUp" class="ivy_pop_up_bg">
+                        <div v-if="reportedPopUp" class="ivy_screen_pop_up">
+                            <h1 class="ivy_pop_title">
+                                Report this contact to Boolzap?
+                            </h1>
+                            <div class="ivy_pop_checkbox">
+                                <input type="checkbox" name="blockContactCheck" id="blockContactCheck">
+                                <label for="blockContactCheck">Block contact and clear chat</label>
+                            </div>
+                            <p class="ivy_pop_desc">The last 5 messages from this contact will be forwarded to Boolzap. If you block this contact and clear the chat, messages will only be removedfrom this device and your devices on the newer versions of Boolzap.</p>
+                            <p class="ivy_pop_desc">This contact will not be notified.</p>
+                            <div class="ivy_btn_box">
+                                <button class="ivy_com_add inverted" @click="reportedPopUp = !reportedPopUp">Cancel</button>
+                                <button class="ivy_com_add" @click="reportContact()">Report</button>
+                            </div>
+                        </div>
+                        <div v-if="blockedPopUp" class="ivy_screen_pop_up" >
+                            <h1 class="ivy_pop_title">
+                                Block {{ contactList[activeContact].name }}?
+                            </h1>
+                            <div class="ivy_pop_checkbox">
+                                <input type="checkbox" name="reportContactCheck" id="reportContactCheck">
+                                <label for="reportContactCheck">Report Contact</label>
+                            </div>
+                            <p class="ivy_pop_desc">Blocked contacts sill no longer be able to call you or send you messages. This contact will not be modified.</p>
+                            <div class="ivy_btn_box">
+                                <button class="ivy_com_add inverted" @click="blockedPopUp = !blockedPopUp">Cancel</button>
+                                <button class="ivy_com_add" @click="blockContact()">Block</button>
+                            </div>
+                        </div>
                 </div>
             </Transition>
         </div>
